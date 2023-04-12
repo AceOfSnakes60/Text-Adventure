@@ -29,27 +29,38 @@ public class Application {
 
         Scanner sc = new Scanner(System.in);
 
-        //Print area information
-        if (currentArea.getName().equals("Start room")) {
-            display.printMessage("You have entered the mine.");
-            hasEnteredMine = true;
-            display.printMessage("The mine is too dark. Make a torch by combining Stick + cloth then light it with flint.");
-        }
+//        while (true) {
+            // Print area information
+            if (currentArea.getName().equals("Start room")) {
+                display.printMessage("You have entered the mine.");
+                display.printMessage("The mine is too dark. What do you want to do?");
+                display.printMessage("1. Create a torch by combining Stick + cloth then light it with flint");
+                display.printMessage("2. Eat a sandwich");
 
-        while(true) {
-            // Get player command
-            System.out.print(">");
-            command = sc.nextLine();
+                // Get player command
+                System.out.print(">");
+                command = sc.nextLine();
 
-            // Deal with player input
-            if(hasEnteredMine){
-                if(command.equals("torch created")){
-                    display.printMessage("Congratulations! Now you can search for dynamite.");
+                // Deal with player input
+                if (command.equals("1")) {
+                    display.printMessage("Congratulations! You have created a torch. Now you can search for dynamite.");
                     score += 10;
                     display.printMessage("Score: " + score);
+                } else if (command.equals("2")) {
+                    display.printMessage("You eat your sandwich. It was delicious.");
+                    score -= 5;
+                    display.printMessage("Score: " + score);
+                } else {
+                    display.printMessage("Invalid command!");
                 }
             }
-        }
+
+//        Game game = new Game(areas, input, display);
+//
+//            game.run();
+//
+//
+////        }
 
         //TODO: un/comment below Area and Game (3 lines) - to stop infinity loop
 //        areas = loadAreas();
