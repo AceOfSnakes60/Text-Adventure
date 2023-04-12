@@ -14,6 +14,11 @@ public class Area {
         Actors = new ArrayList<Actor>();
     }
 
+    //Constructor to easy solution
+    public Area(String roomName){
+        this.name = roomName;
+    }
+
     public Area(String entrance, String description) {
 
 
@@ -32,6 +37,6 @@ public class Area {
     }
 
     public String getName() {
-        return this.description;
+        return this.name;
     }
 }

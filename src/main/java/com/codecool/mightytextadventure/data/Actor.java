@@ -1,19 +1,28 @@
 package com.codecool.mightytextadventure.data;
 
 public class Actor {
-    private String Name;
-    private String Description;
+    private String name;
+    private int score;
 
-    public Actor(String Name, String Description){
-        this.Name = Name;
-        this.Description = Description;
+    public Actor(String name){
+        this.name = name;
+        this.score = 0;
     }
 
-    String getName(){
-        return Name;
+    public String getName(){
+        return name;
     }
-    String getDescription(){
-        return Description;
+
+    public int getScore(){
+        return score;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     public void Open(){};
