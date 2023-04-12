@@ -16,20 +16,52 @@ public class Application {
 
         display.printMessage("Starting Mighty Text Adventure!");
         display.printMessage("Please provide your name:");
-        String name =  scanner.nextLine();
+        String name = scanner.nextLine();
         display.printMessage("Hello, " + name + "! Welcome to the game.");
 
-        //TODO: modify below Area and Game - now infinity loop
+        //Initialize the game
+        int score = 0;
+        String command = "";
         Area[] areas = loadAreas();
+        Area currentArea = areas[0];
+        boolean hasDynamite = false;
+        boolean hasEnteredMine = false;
 
-        Game game = new Game(areas, input, display);
-        game.run();
+        Scanner sc = new Scanner(System.in);
 
-        display.printMessage("Exiting from Mighty Text Adventure!");
+        //Print area information
+        if (currentArea.getName().equals("Start room")) {
+            display.printMessage("You have entered the mine.");
+            hasEnteredMine = true;
+            display.printMessage("The mine is too dark. Make a torch by combining Stick + cloth then light it with flint.");
+        }
+
+        while(true) {
+            // Get player command
+            System.out.print(">");
+            command = sc.nextLine();
+
+            // Deal with player input
+            if(hasEnteredMine){
+                if(command.equals("torch created")){
+                    display.printMessage("Congratulations! Now you can search for dynamite.");
+                    score += 10;
+                    display.printMessage(String.valueOf(score));
+                }
+            }
+        }
+
+        //TODO: comment below Area and Game (3 lines) - to stop infinity loop
+//        areas = loadAreas();
+//
+//        Game game = new Game(areas, input, display);
+//        game.run();
+
+//        display.printMessage("Exiting from Mighty Text Adventure!");
     }
 
-    private static Area[] loadAreas(){
-        Area[] areas =   new Area[7];
+    private static Area[] loadAreas() {
+        Area[] areas = new Area[7];
         areas[0] = new Area("Start room");
         areas[1] = new Area("Room 1");
         areas[2] = new Area("Room 2");

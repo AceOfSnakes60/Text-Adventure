@@ -5,4 +5,8 @@ public class Area {
     public Area(String description) {
         this.description = description;
     }
+
+    public String getName() {
+        return this.description;
+    }
 }
