@@ -46,17 +46,17 @@ public class Application {
                 if(command.equals("torch created")){
                     display.printMessage("Congratulations! Now you can search for dynamite.");
                     score += 10;
-                    display.printMessage(String.valueOf(score));
+                    display.printMessage("Score: " + score);
                 }
             }
         }
 
-        //TODO: comment below Area and Game (3 lines) - to stop infinity loop
+        //TODO: un/comment below Area and Game (3 lines) - to stop infinity loop
 //        areas = loadAreas();
 //
 //        Game game = new Game(areas, input, display);
 //        game.run();
-
+//
 //        display.printMessage("Exiting from Mighty Text Adventure!");
     }
 
