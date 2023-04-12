@@ -24,4 +24,8 @@ public class Area {
     public ArrayList<Actor> getActors(){
         return Actors;
     }
+
+    public String getName() {
+        return this.description;
+    }
 }
