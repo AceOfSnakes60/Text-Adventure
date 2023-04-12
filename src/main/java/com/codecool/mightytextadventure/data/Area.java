@@ -14,6 +14,12 @@ public class Area {
         Actors = new ArrayList<Actor>();
     }
 
+    public Area(String entrance, String description) {
+
+
+
+    }
+
     public void addActor(Actor actor){
         Actors.add(actor);
     }

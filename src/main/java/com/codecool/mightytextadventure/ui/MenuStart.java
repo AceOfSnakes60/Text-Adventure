@@ -1,9 +1,15 @@
 package com.codecool.mightytextadventure.ui;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class MenuStart {
     static Scanner scanner = new Scanner(System.in);
+
+    public static void welcomeScreen() throws FileNotFoundException {
+        String filepath = "src/main/java/com/codecool/mightytextadventure/ui/welcomeImage.txt";
+        TerminalManager.printFromFile(filepath);
+    }
 
     public static void showMenu() {
         System.out.println("Choose option");

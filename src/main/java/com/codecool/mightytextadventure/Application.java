@@ -6,12 +6,12 @@ import com.codecool.mightytextadventure.ui.Display;
 import com.codecool.mightytextadventure.ui.Input;
 import com.codecool.mightytextadventure.ui.MenuStart;
 
-import java.sql.SQLOutput;
-import java.util.Scanner;
+import java.io.FileNotFoundException;
+
 
 public class Application {
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws FileNotFoundException {
+        MenuStart.welcomeScreen();
         MenuStart.startMenu();
 
         Display display = new Display();
