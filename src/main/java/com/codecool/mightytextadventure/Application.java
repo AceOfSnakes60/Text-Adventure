@@ -1,7 +1,10 @@
 package com.codecool.mightytextadventure;
 
 import com.codecool.mightytextadventure.data.Area;
+import com.codecool.mightytextadventure.data.Areas.A01_Entrance;
+import com.codecool.mightytextadventure.data.Areas.A02_Tunnel;
 import com.codecool.mightytextadventure.logic.Game;
+import com.codecool.mightytextadventure.logic.Player;
 import com.codecool.mightytextadventure.ui.Display;
 import com.codecool.mightytextadventure.ui.Input;
 
@@ -9,12 +12,13 @@ public class Application {
     public static void main(String[] args) {
         Display display = new Display();
         Input input = new Input();
+        Player player = new Player();
 
         display.printMessage("Starting Mighty Text Adventure!");
 
         Area[] areas = loadAreas();
 
-        Game game = new Game(areas, input, display);
+        Game game = new Game(areas, input, display, player);
         game.run();
 
         display.printMessage("Exiting from Mighty Text Adventure!");
@@ -22,7 +26,8 @@ public class Application {
 
     private static Area[] loadAreas(){
         Area[] areas =   new Area[7];
-        areas[0] = new Area("Entrance", "You stand in front of an entrance");
+        areas[0] = new A01_Entrance();
+        areas[1] = new A02_Tunnel();
         return areas;
     }
 }

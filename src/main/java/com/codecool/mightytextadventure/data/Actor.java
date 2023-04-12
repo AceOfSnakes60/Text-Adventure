@@ -4,24 +4,24 @@ public class Actor {
     private String Name;
     private String Description;
 
+    private boolean isItem;
+
     public Actor(String Name, String Description){
         this.Name = Name;
         this.Description = Description;
+        isItem = false;
     }
 
-    String getName(){
+    public Boolean getIsItem(){return isItem;}
+    public void setItemIsTrue(){isItem=true;}
+
+    public String getName(){
         return Name;
     }
-    String getDescription(){
+    public String getDescription(){
         return Description;
     }
 
-    public void Open(){};
-    public void Pick_up(){};
-    public void Use(){};
-    public void Combine(){};
-    public void Look_at(){};
-    public void Go_to(){};
 
 }
 
