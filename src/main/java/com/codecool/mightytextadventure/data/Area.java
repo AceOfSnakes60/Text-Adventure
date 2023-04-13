@@ -1,6 +1,7 @@
 package com.codecool.mightytextadventure.data;
 
 import com.codecool.mightytextadventure.logic.Game;
+import com.codecool.mightytextadventure.logic.Player;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -35,7 +36,7 @@ public class Area {
     public ArrayList<Actor> getActors(){
         return actors;
     }
-    public int getExit(int Direction){
+    public int getExit(int Direction, Player player){
         System.out.println("Parent");
         return -1;
     }

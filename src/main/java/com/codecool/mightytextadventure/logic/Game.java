@@ -58,7 +58,7 @@ public class Game {
             return;
         }
 
-            int moveTo = areas[currentArea].getExit(eDirection.ordinal());
+            int moveTo = areas[currentArea].getExit(eDirection.ordinal(), this.player);
         if(moveTo==-1||areas[moveTo]==null){
             display.printMessage("Can't go this way");
             return;
@@ -75,7 +75,10 @@ public class Game {
                         break;
                     case "inventory":
                         display.printMessage(player.displayInventory());
+                        break;
                     case "help":
+                        display.printHelp();
+                        break;
                     case "exit":
                 }
                 break;
@@ -130,10 +133,21 @@ public class Game {
         }
         display.printMessage("What you're trying to pick doesn't exist.");
     }
-    private void combineItems(String item1, String item2){
-        if(item1=="stick" && item2=="cloth"||item1=="cloth" && item2=="stick"){
-
+    private void combineItems(String command1, String command2){
+        Item item1 = player.getItemFromInventory(command1);
+        Item item2 = player.getItemFromInventory(command2);
+        if(item1==null||item2==null){
+            display.printMessage("You don't have the items!");
+            return;
         }
+        if(item1.getName()=="stick" && item2.getName()=="cloth"||item1.getName()=="cloth" && item2.getName()=="stick"){
+            player.removeFromInventory(item1.getName());
+            player.removeFromInventory(item2.getName());
+            display.printMessage("By combing a stick and a cloth you make a torch.");
+            player.addToInventory(new Item("torch", "Wooden stick with a fire on its end."));
+            return;
+        }
+        display.printMessage("You can't make anything out of this");
     }
 
 }
