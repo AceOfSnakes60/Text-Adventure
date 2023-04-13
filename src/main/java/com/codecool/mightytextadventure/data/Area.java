@@ -37,8 +37,7 @@ public class Area {
         return actors;
     }
     public int getExit(int Direction, Player player){
-        System.out.println("Parent");
-        return -1;
+        return exits[Direction];
     }
 
     public String getDescription(){

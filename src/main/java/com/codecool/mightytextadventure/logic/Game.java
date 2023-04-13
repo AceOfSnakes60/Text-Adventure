@@ -92,14 +92,20 @@ public class Game {
                         break;
                     case "take":
                         takeTarget(command[1]);
+                        break;
                     case "use":
+                        useItem(command[1]);
+                        break;
                 }
                 break;
             case 3:
                 switch(command[0]){
                     case "use":
+                        useItemOn(command[1], command[2]);
+                        break;
                     case "combine":
                         combineItems(command[1], command[2]);
+                        break;
                 }
                 break;
 
@@ -140,6 +146,9 @@ public class Game {
             display.printMessage("You don't have the items!");
             return;
         }
+        //Write specific COMBINE logic here
+
+
         if(item1.getName()=="stick" && item2.getName()=="cloth"||item1.getName()=="cloth" && item2.getName()=="stick"){
             player.removeFromInventory(item1.getName());
             player.removeFromInventory(item2.getName());
@@ -147,7 +156,53 @@ public class Game {
             player.addToInventory(new Item("torch", "Wooden stick with a fire on its end."));
             return;
         }
+
+        //---------------------------------
         display.printMessage("You can't make anything out of this");
+    }
+
+
+    private void useItem(String itemName){
+        Item item = player.getItemFromInventory(itemName);
+        if(item==null){
+            display.printMessage("You don't have the item!");
+            return;
+        }
+        //Write specific USE ITEM logic here
+
+        //---------------------------------
+        display.printMessage("You cant use a "+itemName+". It's nonsense.");
+
+    }
+    private void useItemOn(String itemName, String targetName){
+        Item item = player.getItemFromInventory(itemName);
+        Actor target = areas[currentArea].getActorByName(targetName);
+        if(item==null){
+            display.printMessage("You don't have the item!");
+            return;
+        }
+        if(target==null){
+            display.printMessage("You have nothing to use the "+ itemName + " on!");
+        }
+        //Write specific USE ITEM ON logic here
+        if(Objects.equals(itemName, "pickaxe") && Objects.equals(targetName, "rocks")){
+            display.printMessage("After a while of back-breaking labour you realize it would take ages to clear this tunnel. You need something stronger.");
+            return;
+        }
+        if(Objects.equals(itemName, "pickaxe") && Objects.equals(targetName, "door")){
+            areas[currentArea].removeActor(target);
+            player.removeFromInventory(itemName);
+            display.printMessage("After a little effort the door breaks apart into tiny splinters. Your rusty pickaxe also turns into dust.");
+            return;
+        }
+        if(Objects.equals(itemName, "dynamite") && Objects.equals(targetName, "rocks")){
+            areas[currentArea].removeActor(target);
+            player.removeFromInventory(itemName);
+            display.printMessage("You blow up the pile of rocks. Dust fills the air making its way into your lungs causing a violent cough. \nNonetheless the path is open.");
+            return;
+        }
+        //---------------------------------
+        display.printMessage("You cant use "+ itemName +" on "+targetName+". It's madness!");
     }
 
 }

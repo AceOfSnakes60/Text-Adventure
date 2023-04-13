@@ -8,17 +8,16 @@ import com.codecool.mightytextadventure.logic.Player;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class A01_Entrance extends Area {
+public class A00_Entrance extends Area {
     private final int[] exits = {1, -1, -1, -1};
     private boolean isDark = true;
 
-    public A01_Entrance(){
+    public A00_Entrance(){
         super("Entrance","You stand south of the entrance to a mine. A stick is sticking in front of the opening.");
         addActor(new Item("stick", "A wooden stick. Very sticky."));
     }
 
     public int getExit(int Direction, Player player){
-        System.out.println("Direction " + Direction);
         if(exits[Direction] == 1){
             if(isDark) {
                 if (player.getItemFromInventory("torch") != null) {
