@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class TerminalManager {
 
-    private static Scanner scanner = new Scanner(System.in);
+    public static Scanner scanner = new Scanner(System.in);
 
 
     public static void emptyLinesThree() {
@@ -14,9 +14,9 @@ public class TerminalManager {
     }
 
     public static void pressAnyKeyToContinue() {
-        System.out.println("\n-----------------------------");
+        System.out.println("\n---------------------------------------");
         System.out.println("| Press any key and enter to continue |");
-        System.out.println("-----------------------------");
+        System.out.println("---------------------------------------");
         scanner.nextLine();
     }
 

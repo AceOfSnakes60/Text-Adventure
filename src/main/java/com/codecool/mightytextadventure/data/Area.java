@@ -24,12 +24,6 @@ public class Area {
         this.name = roomName;
     }
 
-    public Area(String entrance, String description) {
-
-
-
-    }
-
     public void addActor(Actor actor){
         actors.add(actor);
     }

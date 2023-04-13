@@ -11,6 +11,9 @@ import com.codecool.mightytextadventure.ui.Input;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Scanner;
+
+import static com.codecool.mightytextadventure.ui.TerminalManager.scanner;
 
 
 public class Game {
@@ -34,17 +37,17 @@ public class Game {
         display.printMessage("Please provide your name:");
         String name = scanner.nextLine();
         display.printMessage("Hello, " + name + "! Welcome to the game.");
-        this.actor = new Actor(name);
+//        Actor actor = new Actor(name);
 
         boolean isRunning = true;
         while (isRunning) {
-            startArea1();
-            startArea1();
-            startArea1();
-            startArea1();
-            startArea1();
-            startArea1();
-            startArea1();
+//            startArea1();
+//            startArea1();
+//            startArea1();
+//            startArea1();
+//            startArea1();
+//            startArea1();
+//            startArea1();
 //            askIfRetry();
 
             isRunning = step();
@@ -53,7 +56,7 @@ public class Game {
 
     private boolean step() {
         display.printMessage(areas[currentArea].getDescription());
-        String[] userInput = input.getInputFromUser();
+        String[] userInput = new String[]{input.getInputFromUser()};
         runCommand(userInput);
         display.printMessage("Steps");
         return true;
