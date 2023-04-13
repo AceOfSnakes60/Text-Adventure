@@ -1,17 +1,22 @@
 package com.codecool.mightytextadventure.data;
 
+import com.codecool.mightytextadventure.logic.Game;
+import com.codecool.mightytextadventure.logic.Player;
+
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Objects;
 
 public class Area {
     private String name;
     private String description;
-    private Map<String, Area> exits;
-    private ArrayList<Actor> Actors;
+    private int[] exits;
+    private ArrayList<Actor> actors;
 
-    public Area(String Name, String Description, ArrayList<Actor> actors, Map<String, Area> exits){
-
-        Actors = new ArrayList<Actor>();
+    public Area(String name, String description){
+        this.name = name;
+        this.description = description;
+        actors = new ArrayList<Actor>();
     }
 
     //Constructor to easy solution
@@ -26,14 +31,28 @@ public class Area {
     }
 
     public void addActor(Actor actor){
-        Actors.add(actor);
+        actors.add(actor);
     }
     public void removeActor(Actor actor){
-        Actors.remove(actor);
+        actors.remove(actor);
+    }
+    public Actor getActorByName(String name){
+        for(Actor actor : actors) {
+            if (Objects.equals(name, actor.getName())) {
+                return actor;
+            }
+        }
+        return null;
+    }
+    public ArrayList<Actor> getActors(){
+        return actors;
+    }
+    public int getExit(int Direction, Player player){
+        return exits[Direction];
     }
 
-    public ArrayList<Actor> getActors(){
-        return Actors;
+    public String getDescription(){
+        return description;
     }
 
     public String getName() {
