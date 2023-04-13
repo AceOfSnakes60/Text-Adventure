@@ -7,16 +7,20 @@ import com.codecool.mightytextadventure.data.Item;
 import com.codecool.mightytextadventure.ui.Display;
 import com.codecool.mightytextadventure.ui.Input;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
+
 
 public class Game {
     private final Area[] areas;
     private final Input input;
     private final Display display;
+
     private final Player player;
     private int currentArea = 0;
+
 
     public Game(Area[] areas, Input input, Display display, Player player) {
         this.areas = areas;
@@ -26,8 +30,23 @@ public class Game {
     }
 
     public void run() {
+
+        display.printMessage("Please provide your name:");
+        String name = scanner.nextLine();
+        display.printMessage("Hello, " + name + "! Welcome to the game.");
+        this.actor = new Actor(name);
+
         boolean isRunning = true;
         while (isRunning) {
+            startArea1();
+            startArea1();
+            startArea1();
+            startArea1();
+            startArea1();
+            startArea1();
+            startArea1();
+//            askIfRetry();
+
             isRunning = step();
         }
     }
@@ -39,6 +58,7 @@ public class Game {
         display.printMessage("Steps");
         return true;
     }
+
     private void goDirection(String Direction){
 
         Directions eDirection = null;

@@ -1,3 +1,4 @@
+
 package com.codecool.mightytextadventure.data;
 
 public class Item extends Actor{
@@ -6,3 +7,4 @@ public class Item extends Actor{
         setItemIsTrue();
     }
 }
+

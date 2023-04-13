@@ -19,6 +19,17 @@ public class Area {
         actors = new ArrayList<Actor>();
     }
 
+    //Constructor to easy solution
+    public Area(String roomName){
+        this.name = roomName;
+    }
+
+    public Area(String entrance, String description) {
+
+
+
+    }
+
     public void addActor(Actor actor){
         actors.add(actor);
     }
@@ -42,5 +53,9 @@ public class Area {
 
     public String getDescription(){
         return description;
+    }
+
+    public String getName() {
+        return this.name;
     }
 }

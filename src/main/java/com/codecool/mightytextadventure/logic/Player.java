@@ -1,3 +1,4 @@
+
 package com.codecool.mightytextadventure.logic;
 
 import com.codecool.mightytextadventure.data.Item;
@@ -50,3 +51,4 @@ public class Player {
     }
 
 }
+
