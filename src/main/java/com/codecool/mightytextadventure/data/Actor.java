@@ -4,33 +4,26 @@ public class Actor {
     private String name;
     private int score;
 
-    public Actor(String name){
-        this.name = name;
-        this.score = 0;
+
+    private boolean isItem;
+
+    public Actor(String Name, String Description){
+        this.Name = Name;
+        this.Description = Description;
+        isItem = false;
     }
+
+    public Boolean getIsItem(){return isItem;}
+    public void setItemIsTrue(){isItem=true;}
 
     public String getName(){
         return name;
     }
+    public String getDescription(){
+        return Description;
 
-    public int getScore(){
-        return score;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public void Open(){};
-    public void Pick_up(){};
-    public void Use(){};
-    public void Combine(){};
-    public void Look_at(){};
-    public void Go_to(){};
 
 }
 
