@@ -1,8 +1,8 @@
 package com.codecool.mightytextadventure.data;
 
 public class Actor {
-    private String name;
-    private int score;
+    private String Name;
+    private String Description;
 
 
     private boolean isItem;
@@ -13,11 +13,15 @@ public class Actor {
         isItem = false;
     }
 
+    public Actor(String name) {
+
+    }
+
     public Boolean getIsItem(){return isItem;}
     public void setItemIsTrue(){isItem=true;}
 
     public String getName(){
-        return name;
+        return Name;
     }
     public String getDescription(){
         return Description;
