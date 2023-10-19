@@ -5,7 +5,10 @@ import java.util.Scanner;
 public class Input {
 
     public String getInputFromUser(){
-        return "";
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Input: ");
+        String inputProvidedByUser = scanner.nextLine();
+        return inputProvidedByUser;
     }
 
 }
